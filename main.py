@@ -30,16 +30,20 @@ def send_message(message):
 
 
 def main():
+    url = 'http://itetss.asuscomm.com/status/'
+    data = {'kvit': '46759'}
+    html = take_url(url, data)
+    cache = take_all_text(html)
+
     while True:
         try:
-            url = 'http://itetss.asuscomm.com/status/'
-            data = {'kvit': '46759'}
-            html = take_url(url, data)
-            page = take_all_text(html)
-
-            if 'Статус:ОЖИДАЕТ ЗАПЧАСТИ' not in page:
+            new_html = take_url(url, data)
+            page = take_all_text(new_html)
+            if cache != page:
+                cache = page
                 send_message(message=page)
-                sys.exit()
+            else:
+                print('статус не изменился')
 
             time.sleep(1200)
 
