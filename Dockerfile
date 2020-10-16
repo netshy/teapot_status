@@ -16,5 +16,5 @@ RUN pip install -r requirements.txt
 # copy project
 COPY . .
 
-# run entrypoint.sh
+# run script
 CMD python3 main.py
