@@ -26,7 +26,7 @@ git clone https://github.com/netshy/teapot_status.git
 ```
 cd teapot_status
 ```
-Запустите билд и дошдитесь успешной сборки
+Запустите билд и дождитесь успешной сборки
 ```
 docker build .
 ```
