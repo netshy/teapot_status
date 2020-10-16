@@ -11,6 +11,7 @@ load_dotenv()
 
 TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
 CHAT_ID = os.getenv('CHAT_ID')
+RECEIPT_NUMBER = os.getenv('RECEIPT_NUMBER')
 
 
 def take_url(url, data):
@@ -31,7 +32,7 @@ def send_message(message):
 
 def main():
     url = 'http://itetss.asuscomm.com/status/'
-    data = {'kvit': '46759'}
+    data = {'kvit': RECEIPT_NUMBER}
     html = take_url(url, data)
     cache = take_all_text(html)
 
